@@ -1,0 +1,19 @@
+.btn {
+  margin-right: 10px;
+}
+
+a:not([href]) {
+  color: white;
+}
+
+label {
+  border: 1.25px solid silver;
+  border-radius: 5px;
+  padding: 0 3px;
+}
+
+#result {
+  display: none;
+  border: 1.25px solid silver;
+  padding: 15px;
+}
