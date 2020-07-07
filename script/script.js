@@ -1,18 +1,15 @@
 let outFromData = "";
+const startObj = {"text":["Жили-были {var1} да {var2}","Была у них {var3}","Снесла {var3} {var4}, не простое - золотое","- {var1} бил, бил - не разбил","- {var2} била, била - не разбила","{var5} бежала, {var6} задела, {var4} упало и разбилось.","{var1} плачет, {var2} плачет, а {var3} кудахчет:","{speach}"]};
 
-function handleButton() {
-  $.getJSON( "https://api.jsonbin.io/b/5e905926172eb643896166e7",
-    function (data, textStatus, jqXHR) {
-      let obj = data;
-      let objToArray = Object.values(obj).map(v => Object.values(v));
-      let newResult = objToArray[0].join(' ');
-      outFromData = newResult;
-      $("#result").text(outFromData);
-      $("#result").show();
-    })
+function fetchButton() {
+  let objToArray = Object.values(startObj).map(v => Object.values(v));
+  let newResult = objToArray[0].join(' ');
+  outFromData = newResult;
+  $("#result").text(outFromData);
+  $("#result").show();
 }
 
-function handleData() {
+function replaceButton() {
   let text1 = $('input')[0].value;
   let text2 = $('input')[1].value;
   let text3 = $('input')[2].value;
@@ -34,11 +31,11 @@ function handleData() {
 }
 
 function init1() {
-	$("#button-fetch").click(handleButton);
+	$("#button-fetch").click(fetchButton);
 }
 
 function init2() {
-	$("#button-replace").click(handleData);
+	$("#button-replace").click(replaceButton);
 }
 
 $(document).ready(init1);
